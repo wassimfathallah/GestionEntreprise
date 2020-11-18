@@ -1,9 +1,9 @@
 package com.gestion.entreprise.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.gestion.entreprise.entity.Entreprise;
 
-public interface EntrepriseRepository extends CrudRepository<Entreprise, Long> {
+public interface EntrepriseRepository extends JpaRepository<Entreprise, Long> {
 
 }

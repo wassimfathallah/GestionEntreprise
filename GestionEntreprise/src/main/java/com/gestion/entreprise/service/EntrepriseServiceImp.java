@@ -25,4 +25,10 @@ public class EntrepriseServiceImp implements EntrepriseService {
 		return entrepriseRepository.save(entreprise);
 	}
 
+	@Override
+	public List<Entreprise> getAllEntreprise() {
+		
+		return entrepriseRepository.findAll();
+	}
+
 }
