@@ -8,10 +8,5 @@ public interface EntrepriseService {
 
 	
 	Entreprise  createEntreprise(String nom, String zone, String immatriculation, String adresse);
-	List<Entreprise> getAllEntreprise();
 	
-	
-	public Entreprise getEntrepriseById(Long id);
-	
-	public void  deleteEntrepriseById(Long id);
 }
