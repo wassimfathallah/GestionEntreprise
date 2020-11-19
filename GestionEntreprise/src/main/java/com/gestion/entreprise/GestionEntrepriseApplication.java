@@ -8,6 +8,7 @@ public class GestionEntrepriseApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GestionEntrepriseApplication.class, args);
+		System.out.println("hello");
 	}
 
 }

@@ -16,7 +16,8 @@ public class EntrepriseController {
 	// pour afficher La page home
 
 	@GetMapping("/")
-	public String homeEntreprise() {
+	public String homeEntreprise(Model model) {
+		model.addAttribute("AllEntreprise", entrepriseService.getAllEntreprise());
 
 		return "Entreprise";
 	}
