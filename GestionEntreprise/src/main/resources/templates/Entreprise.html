@@ -405,47 +405,47 @@ d
 			</div>
 		</div>
 		<!-- Edit Modal HTML -->
-		<div id="addEmployeeModal" class="modal fade">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form>
-						<div class="modal-header">
-							<h4 class="modal-title">Ajouter une entreprise</h4>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-hidden="true">&times;</button>
-						</div>
-						<div class="modal-body">
-							<div class="form-group">
-								<label>Nom</label> <input type="text" class="form-control"
-									required>
-							</div>
-							<div class="form-group">
-								<label for="cars">Zone</label> <select name="cars" id="cars">
-									<option value="Oasis">Oasis</option>
-									<option value="Maarif">Maarif</option>
-									<option value="audi">Belvédère</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label>Immatriculation</label> <input type="text"
-									class="form-control" required>
-							</div>
-							<div class="form-group">
-								<label>Adresse</label>
-								<textarea class="form-control" required></textarea>
 
-							</div>
-						</div>
-						<div class="modal-footer">
-							<input type="button" class="btn btn-default" data-dismiss="modal"
-								value="Annuler"> <input type="submit"
-								class="btn btn-success" value="Ajouter">
-						</div>
-					</form>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
+					<input type="submit" class="btn btn-success" value="Ajouter">
+				</div><div id="addEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		
+			<form action="/CreateEntreprise" method="POST"  enctype="multipart/form-data">
+				<div class="modal-header">						
+					<h4 class="modal-title">Ajouter une entreprise</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
-			</div>
+				<div class="modal-body">					
+					<div class="form-group">
+						<label>Nom</label>
+						<input type="text" class="form-control"   name="nom"    id="nom" required>
+						</div>
+					<div class="form-group">
+						<label>Zone</label>
+						<input type="text" class="form-control"  name="zone"  id="zone" required>
+					</div>
+					<div class="form-group">
+						<label>Immatriculation</label>
+						<input type="text" class="form-control"  name="immatriculation"  id="immatriculation" required>
+					</div>
+					<div class="form-group">
+						<label>Adresse</label>
+						<textarea class="form-control" name="adresse"   id= "adresse" required></textarea>
+						
+					</div>					
+				</div>
+				<div class="col-sm-10" style="text-align: center">
+					<button type="submit" class="btn btn-primary">Poster le
+						produits</button>
+				</div>
+					
+			</form>
 		</div>
-		<!-- Edit Modal HTML -->
+	</div>
+</div>
 		<div id="editEmployeeModal" class="modal fade">
 			<div class="modal-dialog">
 				<div class="modal-content">
