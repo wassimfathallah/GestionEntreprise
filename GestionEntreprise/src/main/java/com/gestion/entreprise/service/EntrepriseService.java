@@ -9,4 +9,6 @@ public interface EntrepriseService {
 	
 	Entreprise  createEntreprise(String nom, String zone, String immatriculation, String adresse);
 	List<Entreprise> getAllEntreprise();
+	 Entreprise getEntrepriseById(Long id);
+	 void deleteEntreprise(Long id);
 }

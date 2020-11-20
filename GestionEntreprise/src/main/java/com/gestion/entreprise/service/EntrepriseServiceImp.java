@@ -1,6 +1,7 @@
 package com.gestion.entreprise.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,8 +28,26 @@ public class EntrepriseServiceImp implements EntrepriseService {
 
 	@Override
 	public List<Entreprise> getAllEntreprise() {
-		
+
 		return entrepriseRepository.findAll();
+	}
+
+	@Override
+	public Entreprise getEntrepriseById(Long id) {
+		Optional<Entreprise> check = entrepriseRepository.findById(id);
+		Entreprise entreprise = null;
+		if (check.isPresent()) {
+			entreprise = check.get();
+		} else {
+			throw new RuntimeException("entreprise not found");
+		}
+		return entreprise;
+	}
+
+	@Override
+	public void deleteEntreprise(Long id) {
+		this.entrepriseRepository.deleteById(id);
+		
 	}
 
 }

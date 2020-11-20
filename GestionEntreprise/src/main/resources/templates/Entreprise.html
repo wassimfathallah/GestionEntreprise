@@ -320,194 +320,181 @@ select#cars {
 </script>
 </head>
 <body>
-AFFICHER 
-			<div class="col-sm-6 col-md-6 col-lg-4 pt-3"th:each="Entreprise : ${AllEntreprise}">
-				<div class="box-content pt-5)">
-				
-					<h1 th:text="${Entreprise.nom}"></h1>
-					<h1 th:text="${Entreprise.zone}"></h1>
-					<h1 th:text="${Entreprise.immatriculation}"></h1>
-					<h1 th:text="${Entreprise.adresse}"></h1>
-				</div>
-			</div>
+
 	<div class="container-xl">
 
 
-d
 
-			<div class="table-responsive">
-				<div class="table-wrapper">
-					<div class="table-title">
-						<div class="row">
-							<div class="col-sm-6">
-								<h2>Entreprise</h2>
-							</div>
-							<div class="col-sm-6">
-								<a href="#addEmployeeModal" class="btn btn-success"
-									data-toggle="modal"><i class="material-icons">&#xE147;</i>
-									<span>Ajouter une entreprise</span></a> <a
-									href="#deleteEmployeeModal" class="btn btn-danger"
-									data-toggle="modal"><i class="material-icons">&#xE15C;</i>
-									<span>Supprimer</span></a>
-							</div>
+
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col-sm-6">
+							<h2>Entreprise</h2>
+						</div>
+						<div class="col-sm-6">
+							<a href="#addEmployeeModal" class="btn btn-success"
+								data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter
+									une entreprise</span></a> <a href="#deleteEmployeeModal"
+								class="btn btn-danger" data-toggle="modal"><i
+								class="material-icons">&#xE15C;</i> <span>Supprimer</span></a>
 						</div>
 					</div>
-					<table class="table table-striped table-hover">
-						<thead>
-							<tr>
-								<th><span class="custom-checkbox"> <input
-										type="checkbox" id="selectAll"> <label for="selectAll"></label>
-								</span></th>
-								<th>Nom</th>
-								<th>Zone</th>
-								<th>Immatriculation</th>
-								<th>Adresse</th>
-								<th>Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><span class="custom-checkbox"> <input
-										type="checkbox" id="checkbox1" name="options[]" value="1">
-										<label for="checkbox1"></label>
-								</span></td>
-								<td>Entreprise 1</td>
-								<td>Oasis</td>
-								<td>A123456</td>
-								<td>12 rue des fleurs</td>
-								<td><a href="#editEmployeeModal" class="edit"
-									data-toggle="modal"><i class="material-icons"
-										data-toggle="tooltip" title="Edit">&#xE254;</i></a> <a
-									href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i
-										class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-								</td>
-							</tr>
-
+				</div>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th><span class="custom-checkbox"> <input
+									type="checkbox" id="selectAll"> <label for="selectAll"></label>
+							</span></th>
+							<th>Nom</th>
+							<th>Zone</th>
+							<th>Immatriculation</th>
+							<th>Adresse</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody th:each="Entreprise : ${AllEntreprise}">
+						<td th:text="${Entreprise.id}"></td>
+						<td th:text="${Entreprise.nom}"></td>
+						<td th:text="${Entreprise.zone}"></td>
+						<td th:text="${Entreprise.immatriculation}"></td>
+						<td th:text="${Entreprise.adresse}">
+					</td>
+						<td><a href="#editEmployeeModal" class="edit"
+							data-toggle="modal"><i class="material-icons"
+								data-toggle="tooltip" title="Edit">&#xE254;</i></a> <a
+							th:href="@{/deleteEntreprise/{id}(id=${Entreprise.id})}"
+							class="delete"><i class="material-icons"
+								data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
 
 						</tbody>
-					</table>
-					<div class="clearfix">
-						<div class="hint-text">
-							<a href="index.html">Retour</a>
-						</div>
-
-						<ul class="pagination">
-							<li class="page-item disabled"><a href="#">Précédent</a></li>
-							<li class="page-item"><a href="#" class="page-link">1</a></li>
-							<li class="page-item"><a href="#" class="page-link">2</a></li>
-							<li class="page-item active"><a href="#" class="page-link">3</a></li>
-							<li class="page-item"><a href="#" class="page-link">4</a></li>
-							<li class="page-item"><a href="#" class="page-link">5</a></li>
-							<li class="page-item"><a href="#" class="page-link">Suivant</a></li>
-						</ul>
+				</table>
+				<div class="clearfix">
+					<div class="hint-text">
+						<a href="index.html">Retour</a>
 					</div>
+
+					<ul class="pagination">
+						<li class="page-item disabled"><a href="#">Précédent</a></li>
+						<li class="page-item active"><a href="#" class="page-link">1</a></li>
+						<li class="page-item"><a href="#" class="page-link">2</a></li>
+						<li class="page-item "><a href="#" class="page-link">3</a></li>
+						<li class="page-item"><a href="#" class="page-link">4</a></li>
+						<li class="page-item"><a href="#" class="page-link">5</a></li>
+						<li class="page-item"><a href="#" class="page-link">Suivant</a></li>
+					</ul>
 				</div>
 			</div>
-		</div>
-		<!-- Edit Modal HTML -->
-
-				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
-					<input type="submit" class="btn btn-success" value="Ajouter">
-				</div><div id="addEmployeeModal" class="modal fade">
-	<div class="modal-dialog">
-		<div class="modal-content">
-		
-			<form action="/CreateEntreprise" method="POST"  enctype="multipart/form-data">
-				<div class="modal-header">						
-					<h4 class="modal-title">Ajouter une entreprise</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">					
-					<div class="form-group">
-						<label>Nom</label>
-						<input type="text" class="form-control"   name="nom"    id="nom" required>
-						</div>
-					<div class="form-group">
-						<label>Zone</label>
-						<input type="text" class="form-control"  name="zone"  id="zone" required>
-					</div>
-					<div class="form-group">
-						<label>Immatriculation</label>
-						<input type="text" class="form-control"  name="immatriculation"  id="immatriculation" required>
-					</div>
-					<div class="form-group">
-						<label>Adresse</label>
-						<textarea class="form-control" name="adresse"   id= "adresse" required></textarea>
-						
-					</div>					
-				</div>
-				<div class="col-sm-10" style="text-align: center">
-					<button type="submit" class="btn btn-primary">Poster le
-						produits</button>
-				</div>
-					
-			</form>
 		</div>
 	</div>
-</div>
-		<div id="editEmployeeModal" class="modal fade">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form>
-						<div class="modal-header">
-							<h4 class="modal-title">Modifier l'entreprise</h4>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-hidden="true">&times;</button>
-						</div>
-						<div class="modal-body">
-							<div class="form-group">
-								<label>Nom</label> <input type="text" class="form-control"
-									required>
-							</div>
-							<div class="form-group">
-								<label for="cars">Zone</label> <select name="cars" id="cars">
-									<option value="Oasis">Oasis</option>
-									<option value="Maarif">Maarif</option>
-									<option value="belvedere">Opel</option>
-									<option value="audi">Belvédère</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label>Immatriculation</label> <input type="text"
-									class="form-control" required>
-							</div>
-							<div class="form-group">
-								<label>Adresse</label>
-								<textarea class="form-control" required></textarea>
+	<!-- Edit Modal HTML -->
 
-							</div>
+	<div class="modal-footer">
+		<input type="submit" class="btn btn-success" value="Ajouter">
+	</div>
+	<div id="addEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<form action="/CreateEntreprise" method="POST"
+					enctype="multipart/form-data">
+					<div class="modal-header">
+						<h4 class="modal-title">Ajouter une entreprise</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Nom</label> <input type="text" class="form-control"
+								name="nom" id="nom" required>
 						</div>
-						<div class="modal-footer">
-							<input type="button" class="btn btn-default" data-dismiss="modal"
-								value="Annuler"> <input type="submit"
-								class="btn btn-info" value="Enregistrer">
+						<div class="form-group">
+							<label>Zone</label> <input type="text" class="form-control"
+								name="zone" id="zone" required>
 						</div>
-					</form>
-				</div>
+						<div class="form-group">
+							<label>Immatriculation</label> <input type="text"
+								class="form-control" name="immatriculation" id="immatriculation"
+								required>
+						</div>
+						<div class="form-group">
+							<label>Adresse</label>
+							<textarea class="form-control" name="adresse" id="adresse"
+								required></textarea>
+
+						</div>
+					</div>
+					<div class="col-sm-10" style="text-align: center">
+						<button type="submit" class="btn btn-primary">Poster le
+							produits</button>
+					</div>
+
+				</form>
 			</div>
 		</div>
-		<!-- Delete Modal HTML -->
-		<div id="deleteEmployeeModal" class="modal fade">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form>
-						<div class="modal-header">
-							<h4 class="modal-title">Supprimer l'entreprise</h4>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-hidden="true">&times;</button>
+	</div>
+	<div id="editEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">
+						<h4 class="modal-title">Modifier l'entreprise</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body" th:each="Entreprise : ${AllEntreprise}">
+						<div class="form-group" >
+							<label>Nom</label> <input type="text" th:value="${Entreprise.nom}"
+								class="form-control">
 						</div>
-						<div class="modal-body">
-							<p>Supprimer la ligne</p>
+						<div class="form-group">
+							<label>Zone</label> <input type="text"
+								th:value="${Entreprise.zone}" class="form-control">
+
 						</div>
-						<div class="modal-footer">
-							<input type="button" class="btn btn-default" data-dismiss="modal"
-								value="Annuler"> <input type="submit"
-								class="btn btn-danger" value="Supprimer">
+						<div class="form-group">
+							<label>Immatriculation</label> <input type="text"
+								class="form-control" th:value="${Entreprise.immatriculation}" required>
 						</div>
-					</form>
-				</div>
+						
+						<div class="form-group">
+							<label>Adresse</label>
+							<textarea class="form-control" th:value="${Entreprise.immatriculation}"required></textarea>
+
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal"
+							value="Annuler"> <input type="submit"
+							class="btn btn-info" value="Enregistrer">
+					</div>
+				</form>
 			</div>
 		</div>
+	</div>
+	<!-- Delete Modal HTML -->
+	<div id="deleteEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">
+						<h4 class="modal-title">Supprimer l'entreprise</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<p>Supprimer la ligne</p>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal"
+							value="Annuler"> <input type="submit"
+							class="btn btn-danger" value="Supprimer">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
